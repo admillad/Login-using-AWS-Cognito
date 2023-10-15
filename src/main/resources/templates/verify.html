@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Form</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" href="../static/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>An email has been sent to: <span th:text="${email}">Email</span></h1>
+    <form action="/verify" method="POST">
+        <input type="hidden" id="email" name="email" th:value="${email}" required>
+        <input type="hidden" id="username" name="username" th:value="${username}" required>
+        <div>
+            <label for="confirmationCode">Confirmation Code:</label>
+            <input type="text" id="confirmationCode" name="confirmationCode" required>
+        </div>
+        <button type="submit">Verify</button>
+    </form>
+</div>
+</body>
+</html>
